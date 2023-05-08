@@ -1,9 +1,15 @@
 <!-- Edit Quote Page -->
 <template>
   <div class="slds-tabs_card">
-    <c-quote-total-summary></c-quote-total-summary>
+    <c-quote-total-summary onadjustquote={handleAdjustQuote}></c-quote-total-summary>
     <div class="slds-m-around_medium">
       <c-edit-quote record-id={recordId}></c-edit-quote>
     </div>
   </div>
+  <template if:true={showAdjustQuotePopup}>
+    <c-adjust-quote-price 
+      oncancel={handleCancel} 
+      record-id={recordId}>
+    </c-adjust-quote-price>
+  </template>
 </template>
